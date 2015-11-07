@@ -8,7 +8,9 @@ Adds ACF options page per custom post type
 
 + Activate the plugin through the **Plugins** menu in WordPress
 
-+ Find options page for each custom post type, it will be as sumenu, named as **CPT Name ACF**
++ Find options page for each custom post type, it will be as submenu, named as **{CPT_NAME} ACF**
+
+![Preview](https://frontend.im/wp-content/uploads/cpt-acf-options.png)
 
 ## Usage
 
@@ -24,25 +26,34 @@ The $post_id parameter needed is a string containing the `cpt_` and CPT name in 
 So, let's go!
 
 #### Display a field
-
-    <p><?php the_field('field_name', 'cpt_projects'); ?></p>
+```php
+<p><?php the_field('field_name', 'cpt_projects'); ?></p>
+```
 
 #### Retrieve a field
-
-    <?php
-          $field = get_field('field_name', 'cpt_projects');
-          // do something with $field
-    ?>
-
+```php
+<?php
+    $field = get_field('field_name', 'cpt_projects');
+    // do something with $field
+?>
+```
 #### Display a sub field
+```php
+<?php if( have_rows('repeater_name', 'cpt_projects') ): ?>
+	<ul>
+	    <?php while( have_rows('repeater_name', 'cpt_projects') ): the_row(); ?>
+	        <li><?php the_sub_field('the_title'); ?></li>
+	    <?php endwhile; ?>
+	</ul>
+<?php endif; ?>
+```
+#### Display with shortcode
 
-    <?php if( have_rows('repeater_name', 'cpt_projects') ): ?>
-	    <ul>
-	        <?php while( have_rows('repeater_name', 'cpt_projects') ): the_row(); ?>
-		        <li><?php the_sub_field('the_title'); ?></li>
-	        <?php endwhile; ?>
-	    </ul>
-    <?php endif; ?>
+```
+[acf field="field_name" post_id="cpt_cpt"]
+```
+
+> Please read documentation about [shortcodes with ACF](http://www.advancedcustomfields.com/resources/shortcode/ "ACF Shortcode")
 
 ## License
 
