@@ -3,7 +3,7 @@
 Plugin Name: Advanced Custom Fields : CPT Options Pages
 Description: Enables ACF options pages for a post type archive.
 Author: Tusko Trush
-Author URI: https://frontned.im/
+Author URI: https://frontend.im/
 Version: 1.0.0
 License: GPL v3
 
