@@ -43,10 +43,12 @@ function ctpacf_options_pages() {
 
             if( post_type_exists( $cpt ) ) {
 
+                $cptname = get_post_type_object( $cpt )->labels->name;
+
                 $cpt_acf_page = array(
-                    'page_title' => ucfirst($cpt) . ' ACF',
-                    'menu_title' => ucfirst($cpt) . ' ACF',
-                    'menu_slug' => 'ctpacf-' . $cpt,
+                    'page_title' => ucfirst( $cptname ) . ' ACF',
+                    'menu_title' => ucfirst( $cptname ) . ' ACF',
+                    'menu_slug' => 'cpt-acf-' . $cpt,
                     'capability' => 'edit_posts',
                     'position' => false,
                     'parent_slug' => 'edit.php?post_type=' . $cpt,
