@@ -4,7 +4,7 @@ Plugin Name: Advanced Custom Fields : CPT Options Pages
 Description: Enables ACF options pages for a post type archive.
 Author: Tusko Trush
 Author URI: https://frontend.im/
-Version: 1.0.0
+Version: 1.0.1
 License: GPL v3
 
 CPT ACF Options Pages
@@ -73,5 +73,12 @@ function ctpacf_options_pages() {
 }
 
 add_action( 'init', 'ctpacf_options_pages', 99 );
+
+
+function ctpacf_action_links( $ctpacf_links ) {
+    $ctpacf_links[] = '<a href="https://github.com/Tusko/ACF-CPT-Options-Pages#usage" target="_blank">Documentation</a>';
+    return $ctpacf_links;
+}
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'ctpacf_action_links' );
 
 ?>
