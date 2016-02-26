@@ -10,7 +10,7 @@ Adds ACF options page per custom post type
 
 + Find options page for each custom post type, it will be as submenu, named as **{CPT_NAME} ACF**
 
-![Preview](https://frontend.im/wp-content/uploads/cpt-acf-options.png)
+![Preview](http://devpreview.xyz/cpt-acf-options.png)
 
 ## Usage
 
@@ -40,11 +40,11 @@ So, let's go!
 #### Display a sub field
 ```php
 <?php if( have_rows('repeater_name', 'cpt_projects') ): ?>
-	<ul>
-	    <?php while( have_rows('repeater_name', 'cpt_projects') ): the_row(); ?>
-	        <li><?php the_sub_field('the_title'); ?></li>
-	    <?php endwhile; ?>
-	</ul>
+    <ul>
+        <?php while( have_rows('repeater_name', 'cpt_projects') ): the_row(); ?>
+            <li><?php the_sub_field('the_title'); ?></li>
+        <?php endwhile; ?>
+    </ul>
 <?php endif; ?>
 ```
 #### Display with shortcode
