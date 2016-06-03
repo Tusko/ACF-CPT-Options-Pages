@@ -57,7 +57,7 @@ So, let's go!
 
 ## License
 
-Copyright (c) 2015, Tusko Trush
+Copyright (c) 2016, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
 
 > See LICENSE for more info.
 
