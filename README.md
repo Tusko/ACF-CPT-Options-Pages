@@ -1,14 +1,13 @@
 # ACF CPT Options Pages
-Small addon for ACF Options.
 
-Adds ACF options page per custom post type
+Small addon for ACF Options. Adds ACF location for each custom post type archive
 
 ## Installation
-+ Upload the **cpt-acf.php** file to the `/wp-content/plugins/` directory
 
-+ Activate the plugin through the **Plugins** menu in WordPress
-
-+ Find options page for each custom post type, it will be as submenu, named as **{CPT_NAME} ACF**
++ Upload 'acf-cpt-options-pages' to the `/wp-content/plugins/` directory.
++ Activate the plugin through the`Plugins` menu in WordPress.
++ Create your Custom Field Group, set location rule `Options Page` and choose your `Custom Post Type`
++ Read the documentation to display your data.
 
 ![Preview](http://devpreview.xyz/cpt-acf-options.png)
 
@@ -21,6 +20,7 @@ This is similar to passing through a `$post_id` parameter to target a specific p
 The $post_id parameter needed is a string containing the `cpt_` and CPT name in the following format; `"cpt_{CPT_NAME}"`
 
 ## Examples
+
 >In examples `projects` is a Custom Post Type name.
 
 So, let's go!
@@ -60,6 +60,10 @@ So, let's go!
 Copyright (c) 2016, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
 
 > See LICENSE for more info.
+
+## Requirements
+
+You must buy ACF PRO or ACF Options Page Addon.
 
 ---------------
 If you have any questions on this please post an issue/question: https://github.com/Tusko/ACF-CPT-Options-Pages/issues

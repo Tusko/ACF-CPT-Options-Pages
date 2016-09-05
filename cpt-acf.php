@@ -1,14 +1,15 @@
 <?php
 /*
 Plugin Name: Advanced Custom Fields : CPT Options Pages
+Plugin URI:
 Description: Enables ACF options pages for a post type archive.
 Author: Tusko Trush
 Author URI: https://frontend.im/
-Version: 1.0.1
+Version: 1.0.2
 License: GPL v3
 
 CPT ACF Options Pages
-Copyright (C) 2015, Tusko Trush - tusko@photoinside.me
+Copyright (C) 2016, Tusko Trush - tusko@photoinside.me
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,9 +47,9 @@ function ctpacf_options_pages() {
                 $cptname = get_post_type_object( $cpt )->labels->name;
 
                 $cpt_acf_page = array(
-                    'page_title' => ucfirst( $cptname ) . ' ACF',
-                    'menu_title' => ucfirst( $cptname ) . ' ACF',
-                    'menu_slug' => 'cpt-acf-' . $cpt,
+                    'page_title' => ucfirst( $cptname ) . ' Archive',
+                    'menu_title' => ucfirst( $cptname ) . ' Archive',
+                    'menu_slug' => $cpt . '-archive',
                     'capability' => 'edit_posts',
                     'position' => false,
                     'parent_slug' => 'edit.php?post_type=' . $cpt,
@@ -80,5 +81,3 @@ function ctpacf_action_links( $ctpacf_links ) {
     return $ctpacf_links;
 }
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'ctpacf_action_links' );
-
-?>
