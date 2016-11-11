@@ -65,5 +65,17 @@ Copyright (c) 2016, [Tusko Trush](https://frontend.im/?github "Front-End Develop
 
 You must buy ACF PRO or ACF Options Page Addon.
 
+
+## Translation
+
+**qTanslate-X**
+
+> If you are using Qtranslate-X, you must install [ACF Qtranslate](https://uk.wordpress.org/plugins/acf-qtranslate/ "ACF Qtranslate").
+
+**WPML/Polylang**
+
+> If you are using WPML or Polylang, you must add constant `ICL_LANGUAGE_CODE` to `post_id`,
+for example: `get_field('archive_title', 'cpt_projects_' . ICL_LANGUAGE_CODE)`.
+
 ---------------
 If you have any questions on this please post an issue/question: https://github.com/Tusko/ACF-CPT-Options-Pages/issues

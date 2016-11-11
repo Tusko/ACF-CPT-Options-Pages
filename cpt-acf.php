@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Advanced Custom Fields : CPT Options Pages
-Plugin URI:
+Plugin URI: https://wordpress.org/plugins/acf-cpt-options-pages/
 Description: Enables ACF options pages for a post type archive.
 Author: Tusko Trush
 Author URI: https://frontend.im/
-Version: 1.0.2
+Version: 1.1.0
 License: GPL v3
 
 CPT ACF Options Pages
@@ -45,18 +45,22 @@ function ctpacf_options_pages() {
             if( post_type_exists( $cpt ) ) {
 
                 $cptname = get_post_type_object( $cpt )->labels->name;
+                $cpt_post_id = 'cpt_' . $cpt;
+
+                if( defined('ICL_LANGUAGE_CODE') ) {
+                    $cpt_post_id = $cpt_post_id . '_' . ICL_LANGUAGE_CODE;
+                }
 
                 $cpt_acf_page = array(
                     'page_title' => ucfirst( $cptname ) . ' Archive',
                     'menu_title' => ucfirst( $cptname ) . ' Archive',
+                    'parent_slug' => 'edit.php?post_type=' . $cpt,
                     'menu_slug' => $cpt . '-archive',
                     'capability' => 'edit_posts',
+                    'post_id' => $cpt_post_id,
                     'position' => false,
-                    'parent_slug' => 'edit.php?post_type=' . $cpt,
                     'icon_url' => false,
-                    'redirect' => false,
-                    'post_id' => 'cpt_' . $cpt,
-                    'autoload' => false
+                    'redirect' => false
                 );
 
                 acf_add_options_page( $cpt_acf_page );
@@ -81,3 +85,5 @@ function ctpacf_action_links( $ctpacf_links ) {
     return $ctpacf_links;
 }
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'ctpacf_action_links' );
+
+?>
