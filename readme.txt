@@ -94,7 +94,7 @@ If you have any questions on this please post an issue/question at [Github Issue
 
 == Changelog ==
 
-= 1.0.2 =
+= 1.1.0 =
 * WPML and Polylang compatibility added.
 
 = 1.0.2 =

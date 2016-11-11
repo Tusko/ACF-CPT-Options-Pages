@@ -9,7 +9,7 @@ Small addon for ACF Options. Adds ACF location for each custom post type archive
 + Create your Custom Field Group, set location rule `Options Page` and choose your `Custom Post Type`
 + Read the documentation to display your data.
 
-![Preview](http://devpreview.xyz/cpt-acf-options.png)
+![Preview](http://dev0.site/cpt-acf-options.png)
 
 ## Usage
 
