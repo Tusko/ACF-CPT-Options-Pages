@@ -28,52 +28,52 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 function ctpacf_admin_error_notice() {
-    echo '<div class="update-nag"><p>The plugin <strong>Advanced Custom Fields : CPT Options Pages</strong> is not standalone plugin.<br />Please buy <a href="http://www.advancedcustomfields.com/add-ons/options-page/">ACF Options Page Addon</a> or <a href="http://www.advancedcustomfields.com/pro/">ACF PRO</a> and install it.</p></div>';
+	echo '<div class="update-nag"><p>The plugin <strong>Advanced Custom Fields : CPT Options Pages</strong> is not standalone plugin.<br />Please buy <a href="http://www.advancedcustomfields.com/add-ons/options-page/">ACF Options Page Addon</a> or <a href="http://www.advancedcustomfields.com/pro/">ACF PRO</a> and install it.</p></div>';
 }
 
 function ctpacf_options_pages() {
 
-    if( function_exists('acf_add_options_page') ) { //Check if installed acf
+	if ( function_exists( 'acf_add_options_page' ) ) { //Check if installed acf
 
-        $ctpacf_post_types = get_post_types( array(
-            '_builtin' => false,
-            'has_archive' => true
-        ) ); //get post types
+		$ctpacf_post_types = get_post_types( array(
+			'_builtin'    => false,
+			'has_archive' => true
+		) ); //get post types
 
-        foreach ( $ctpacf_post_types as $cpt ) {
+		foreach ( $ctpacf_post_types as $cpt ) {
 
-            if( post_type_exists( $cpt ) ) {
+			if ( post_type_exists( $cpt ) ) {
 
-                $cptname = get_post_type_object( $cpt )->labels->name;
-                $cpt_post_id = 'cpt_' . $cpt;
+				$cptname     = get_post_type_object( $cpt )->labels->name;
+				$cpt_post_id = 'cpt_' . $cpt;
 
-                if( defined('ICL_LANGUAGE_CODE') ) {
-                    $cpt_post_id = $cpt_post_id . '_' . ICL_LANGUAGE_CODE;
-                }
+				if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+					$cpt_post_id = $cpt_post_id . '_' . ICL_LANGUAGE_CODE;
+				}
 
-                $cpt_acf_page = array(
-                    'page_title' => ucfirst( $cptname ) . ' Archive',
-                    'menu_title' => ucfirst( $cptname ) . ' Archive',
-                    'parent_slug' => 'edit.php?post_type=' . $cpt,
-                    'menu_slug' => $cpt . '-archive',
-                    'capability' => 'edit_posts',
-                    'post_id' => $cpt_post_id,
-                    'position' => false,
-                    'icon_url' => false,
-                    'redirect' => false
-                );
+				$cpt_acf_page = array(
+					'page_title'  => ucfirst( $cptname ) . ' Archive',
+					'menu_title'  => ucfirst( $cptname ) . ' Archive',
+					'parent_slug' => 'edit.php?post_type=' . $cpt,
+					'menu_slug'   => $cpt . '-archive',
+					'capability'  => 'edit_posts',
+					'post_id'     => $cpt_post_id,
+					'position'    => false,
+					'icon_url'    => false,
+					'redirect'    => false
+				);
 
-                acf_add_options_page( $cpt_acf_page );
+				acf_add_options_page( $cpt_acf_page );
 
-            } // end if
+			} // end if
 
-        }
+		}
 
-    } else { //activation warning
+	} else { //activation warning
 
-        add_action( 'admin_notices', 'ctpacf_admin_error_notice' );
+		add_action( 'admin_notices', 'ctpacf_admin_error_notice' );
 
-    }
+	}
 
 }
 
@@ -81,9 +81,11 @@ add_action( 'init', 'ctpacf_options_pages', 99 );
 
 
 function ctpacf_action_links( $ctpacf_links ) {
-    $ctpacf_links[] = '<a href="https://github.com/Tusko/ACF-CPT-Options-Pages#usage" target="_blank">Documentation</a>';
-    return $ctpacf_links;
+	$ctpacf_links[] = '<a href="https://github.com/Tusko/ACF-CPT-Options-Pages#usage" target="_blank">Documentation</a>';
+
+	return $ctpacf_links;
 }
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'ctpacf_action_links' );
+
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'ctpacf_action_links' );
 
 ?>
