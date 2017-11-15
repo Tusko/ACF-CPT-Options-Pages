@@ -9,7 +9,7 @@ Small addon for ACF Options. Adds ACF location for each custom post type archive
 + Create your Custom Field Group, set location rule `Options Page` and choose your `Custom Post Type`
 + Read the documentation to display your data.
 
-![Preview](http://dev0.site/cpt-acf-options.png)
+![Preview](http://arsmoon.stream/cpt-acf-options.png)
 
 ## Usage
 
@@ -50,14 +50,30 @@ So, let's go!
 #### Display with shortcode
 
 ```
-[acf field="field_name" post_id="cpt_cpt"]
+[acf field="field_name" post_id="cpt_projects"]
 ```
 
 > Please read documentation about [shortcodes with ACF](http://www.advancedcustomfields.com/resources/shortcode/ "ACF Shortcode")
 
+## Customization
+
+Add in your `functions.php`
+
+```
+function cpt_projects_customize($cptmenu) {
+    $cptmenu['page_title'] = 'Dev Custom title';
+    $cptmenu['menu_title'] = 'Dev Custom title';
+    return $cptmenu;
+}
+
+add_filter('cpt_projects_acf_page_args', 'cpt_projects_customize');
+```
+
+Don't forget to replace `cpt_projects_` to your custom post type name :)
+
 ## License
 
-Copyright (c) 2016, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
+Copyright (c) 2017, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
 
 > See LICENSE for more info.
 
@@ -76,6 +92,13 @@ You must buy ACF PRO or ACF Options Page Addon.
 
 > If you are using WPML or Polylang, you must add constant `ICL_LANGUAGE_CODE` to `post_id`,
 for example: `get_field('archive_title', 'cpt_projects_' . ICL_LANGUAGE_CODE)`.
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+ [<img src="https://avatars.githubusercontent.com/u/2039259" width="100px;"/><br /><sub>Tusko Trush</sub>](https://github.com/tusko?github)<br /> Chief :D | [<img src="https://avatars.githubusercontent.com/u/1512067" width="100px;"/><br /><sub>Máté Farkas</sub>](https://github.com/wolfika)<br /> i18n Support | [<img src="https://avatars.githubusercontent.com/u/5536354" width="100px;"/><br /><sub>Máté Farkas</sub>](https://github.com/wolfika)<br /> Customizations
+--- | --- | ---
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---------------
 If you have any questions on this please post an issue/question: https://github.com/Tusko/ACF-CPT-Options-Pages/issues

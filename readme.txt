@@ -4,8 +4,8 @@ Contributors: tusko-trush
 Donate link: https://arsmoon.com/
 Tags: Advanced Custom Fields, ACF Options, Custom Post Type, Archive
 Requires at least: 3.0
-Tested up to: 4.7
-Stable tag: 1.1.0
+Tested up to: 4.8.3
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,9 +57,24 @@ So, let's go!
 > Please read documentation about [shortcodes with ACF](http://www.advancedcustomfields.com/resources/shortcode/ "ACF Shortcode")
 
 
+## Customization
+
+`
+    function cpt_projects_customize($cptmenu) {
+        $cptmenu['page_title'] = 'Dev Custom title';
+        $cptmenu['menu_title'] = 'Dev Custom title';
+        return $cptmenu;
+    }
+
+    add_filter('cpt_projects_acf_page_args', 'cpt_projects_customize');
+`
+
+Don't forget to replace `cpt_projects_` to your custom post type name :)
+
+
 = License =
 
-Copyright (c) 2016, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
+Copyright (c) 2017, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
 
 = Requirements =
 
@@ -93,6 +108,10 @@ If you have any questions on this please post an issue/question at [Github Issue
 1. assets/screenshot-1.png
 
 == Changelog ==
+
+= 1.1.0 =
+* Support MO translations
+* Customization using `add_filter`
 
 = 1.1.0 =
 * WPML and Polylang compatibility added.
