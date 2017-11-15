@@ -71,6 +71,8 @@ function ctpacf_options_pages() {
 					'redirect'    => false
 				);
 
+				$cpt_acf_page = apply_filters( 'cpt_acf_page_args', $cpt_acf_page );
+
 				acf_add_options_page( $cpt_acf_page );
 
 			} // end if
