@@ -71,6 +71,13 @@ add_filter('cpt_projects_acf_page_args', 'cpt_projects_customize');
 
 Don't forget to replace `cpt_projects_` to your custom post type name :)
 
+### To-do
+
+  - Create settings page
+  - Edit menu/page title and capability
+  - Turn on/off post types
+
+
 ## License
 
 Copyright (c) 2017, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
@@ -96,7 +103,7 @@ for example: `get_field('archive_title', 'cpt_projects_' . ICL_LANGUAGE_CODE)`.
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
- [<img src="https://avatars.githubusercontent.com/u/2039259" width="100px;"/><br /><sub>Tusko Trush</sub>](https://github.com/tusko?github)<br /> Chief :D | [<img src="https://avatars.githubusercontent.com/u/1512067" width="100px;"/><br /><sub>Máté Farkas</sub>](https://github.com/wolfika)<br /> i18n Support | [<img src="https://avatars.githubusercontent.com/u/5536354" width="100px;"/><br /><sub>Máté Farkas</sub>](https://github.com/wolfika)<br /> Customizations
+ [<img src="https://avatars.githubusercontent.com/u/2039259" width="100px;"/><br /><sub>Tusko Trush</sub>](https://github.com/tusko?github)<br /> Chief :D | [<img src="https://avatars.githubusercontent.com/u/1512067" width="100px;"/><br /><sub>Máté Farkas</sub>](https://github.com/wolfika)<br /> i18n Support | [<img src="https://avatars.githubusercontent.com/u/5536354" width="100px;"/><br /><sub>Sauli Rajala</sub>](https://github.com/saulirajala)<br /> Customizations
 --- | --- | ---
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
