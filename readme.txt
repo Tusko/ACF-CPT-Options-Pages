@@ -1,15 +1,21 @@
 === Plugin Name ===
 
 Contributors: tusko-trush
-Donate link: https://arsmoon.com/
+Donate link: https://send.monobank.com.ua/QMnpw2tn
 Tags: Advanced Custom Fields, ACF Options, Custom Post Type, Archive
 Requires at least: 3.0
-Tested up to: 4.8.3
-Stable tag: 1.1.1
+Tested up to: 4.9.6
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Small addon for ACF Options. Adds ACF location for each custom post type archive
+Small addon for ACF Options. Adds ACF location for each custom post type.
+
+**New feature** in version 2.0.0!
+
+Now you can activate/deactivate CPTs and create custom options pages for each CPT.
+By default, options pages are activated for all custom post types.
+
 
 == Description ==
 
@@ -19,7 +25,8 @@ The default functions of [ACF plugin](http://www.advancedcustomfields.com/ "Adva
 
 This is similar to passing through a `$post_id` parameter to target a specific post object.
 
-The $post_id parameter needed is a string containing the `cpt_` and CPT name in the following format: `"cpt_{CPT_NAME}"`
+The `$post_id` parameter needed is a string containing the `cpt_` and CPT name in the following format; `"cpt_{CPT_NAME}"` and for subpages you can copy generated ID while creating subpages.
+
 
 = Examples =
 
@@ -30,6 +37,10 @@ So, let's go!
 **Display a field**
 
     <p><?php the_field('field_name', 'cpt_projects'); ?></p>
+
+and the subpage's field
+
+    <p><?php the_field('field_name', 'cpt_projects_testpage'); ?></p>
 
 **Retrieve a field**
 
@@ -70,11 +81,12 @@ So, let's go!
 `
 
 Don't forget to replace `cpt_projects_` to your custom post type name :)
+It works only for first level options pages, not for subpages.
 
 
 = License =
 
-Copyright (c) 2017, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
+Copyright (c) 2018, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
 
 = Requirements =
 
@@ -94,10 +106,11 @@ for example: `get_field('archive_title', 'cpt_projects_' . ICL_LANGUAGE_CODE)`.
 
 == Installation ==
 
-1. Upload 'acf-cpt-options-pages' to the '/wp-content/plugins/' directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Create your Custom Field Group, set location rule 'Options Page' and choose your 'Custom Post Type'
-4. Read the documentation to display your data.
+1. Upload 'acf-cpt-options-pages' to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the`Plugins` menu in WordPress.
+3. Go to `Custom fields` submenu `CPT Options page` and activate CPTs what you need or create subpages for that.
+4. Create your Custom Field Group, set location rule `Options Page` and choose your CPT options page or subpage.
+5. Read the documentation to display your data.
 
 == Frequently Asked Questions ==
 
@@ -108,6 +121,10 @@ If you have any questions on this please post an issue/question at [Github Issue
 1. assets/screenshot-1.png
 
 == Changelog ==
+
+= 2.0.0 =
+* Added Polish, Russian, Ukrainian translations.
+*
 
 = 1.1.0 =
 * Support MO translations
