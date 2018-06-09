@@ -123,8 +123,10 @@ If you have any questions on this please post an issue/question at [Github Issue
 == Changelog ==
 
 = 2.0.0 =
-* Added Polish, Russian, Ukrainian translations.
-*
+* Added Russian, Ukrainian translations.
+* Added setting page to ACF CPT Options Pages
+* Added UI to manage options pages per CPT
+* Ability to add child pages to CPTs
 
 = 1.1.0 =
 * Support MO translations
