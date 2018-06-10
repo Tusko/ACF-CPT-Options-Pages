@@ -66,7 +66,6 @@ class ACFCPT_OptionsPages {
 
         $cpt_acf_page = array(
 	        'parent_slug' => 'edit.php?post_type=' . $cpt,
-	        'menu_slug'   => $slug .'-'. $cpt . '-options',
 	        'capability'  => 'edit_posts',
 	        'post_id'     => $cpt_id . ($name !== $cpt?'_'.$slug:''),
 	        'position'    => false,
@@ -78,6 +77,7 @@ class ACFCPT_OptionsPages {
         $cpt_acf_custom = array(
 	        'page_title'  => sprintf( __( '%s Options', CPT_ACF_DOMAIN ), ucfirst( $name ) ),
 	        'menu_title'  => sprintf( __( '%s Options', CPT_ACF_DOMAIN ), ucfirst( $name ) ),
+	        'menu_slug'   => $slug .'-'. $cpt . '-options',
 	        'capability'  => 'edit_posts',
         );
 

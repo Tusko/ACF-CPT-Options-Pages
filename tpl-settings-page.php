@@ -39,7 +39,7 @@ global $title; ?>
                                      <?php echo $cpts_enabled?$checked:'checked'; ?>
                                 />
                                 <span>
-                                    <?php echo get_post_type_object( $cpt )->labels->name; ?>
+                                    <?php echo __(get_post_type_object( $cpt )->labels->name); ?>
                                 </span>
                             </label>
                             <?php if(!$cpts_enabled) {
