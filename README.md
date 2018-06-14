@@ -2,7 +2,7 @@
 
 Small addon for ACF Options. Adds ACF location for each custom post type.
 
-**New feature** in version 2.0.0!
+**New feature** in the major version 2!
 
 Now you can activate/deactivate CPTs and create custom options pages for each CPT.
 By default, options pages are activated for all custom post types.

@@ -58,21 +58,22 @@ class ACFCPT_OptionsPages {
 
     public function register_post_type_options_page($name, $cpt) {
         $cpt_id   = 'cpt_' . $cpt;
-        $slug     = ($name !== $cpt ? strtolower(preg_replace('/[^a-zA-Z0-9_]/', '_', $name)) : '');
+        $slug     = ($name !== $cpt ? '_' . strtolower(preg_replace('/[^a-zA-Z0-9_]/', '_', $name)) : '');
 
-        if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-	        $cpt_id = $cpt_id . '_' . ICL_LANGUAGE_CODE;
-        }
+	    $cpt_id = $cpt_id . $slug;
+
+	    if( defined('ICL_LANGUAGE_CODE') ) {
+		    $cpt_id = $cpt_id . '_' . ICL_LANGUAGE_CODE;
+	    }
 
         $cpt_acf_page = array(
 	        'parent_slug' => 'edit.php?post_type=' . $cpt,
 	        'capability'  => 'edit_posts',
-	        'post_id'     => $cpt_id . ($name !== $cpt?'_'.$slug:''),
+	        'post_id'     => $cpt_id,
 	        'position'    => false,
 	        'icon_url'    => false,
 	        'redirect'    => false
         );
-
 
         $cpt_acf_custom = array(
 	        'page_title'  => sprintf( __( '%s Options', CPT_ACF_DOMAIN ), ucfirst( $name ) ),

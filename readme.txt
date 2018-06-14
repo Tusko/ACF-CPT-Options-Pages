@@ -5,13 +5,13 @@ Donate link: https://send.monobank.com.ua/QMnpw2tn
 Tags: Advanced Custom Fields, ACF Options, Custom Post Type, Archive
 Requires at least: 3.0
 Tested up to: 4.9.6
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Small addon for ACF Options. Adds ACF location for each custom post type.
 
-**New feature** in version 2.0.0!<br>
+**New feature** in the major version 2!<br>
 <span style="color:red">Important!</span><br>
 **After update to v2+ you must reconnect Field Groups to Options Pages**
 
@@ -24,7 +24,7 @@ By default, options pages are activated for all custom post types.
 
 Small addon for ACF Options. Adds ACF location for each custom post type.
 
-**New feature** in version 2.0.0!<br>
+**New feature** in the major version 2!<br>
 <span style="color:red">Important!</span><br>
 **After update to v2+ you must reconnect Field Groups to Options Pages**
 
@@ -134,6 +134,9 @@ If you have any questions on this please post an issue/question at [Github Issue
 1. assets/screenshot-1.png
 
 == Changelog ==
+
+= 2.0.2 =
+* Fixed WPML slugs
 
 = 2.0.0 =
 * Added Russian, Ukrainian translations.
