@@ -57,6 +57,7 @@ class ACFCPT_OptionsPages {
     }
 
     public function register_post_type_options_page($name, $cpt) {
+    	$name 		= ucfirst( str_replace('_', ' ', $name) );
         $cpt_id   = 'cpt_' . $cpt;
         $slug     = ($name !== $cpt ? '_' . strtolower(preg_replace('/[^a-zA-Z0-9_]/', '_', $name)) : '');
 
