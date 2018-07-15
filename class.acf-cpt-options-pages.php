@@ -100,8 +100,7 @@ class ACFCPT_OptionsPages {
 		unset($registered["0"]);
 
         foreach ( $registered as $k => $v ) {
-        	print_r($registered);
-
+        	
 			if(!is_array($v) && post_type_exists( $v )) {
 				$this->register_post_type_options_page($v, $v);
 			} else {
