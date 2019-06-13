@@ -97,9 +97,14 @@ You must buy ACF PRO or ACF Options Page Addon.
 
 ## Translation
 
-**qTanslate-X**
+**qTranslate-XT**
 
-> If you are using Qtranslate-X, you must install [ACF Qtranslate](https://uk.wordpress.org/plugins/acf-qtranslate/ "ACF Qtranslate").
+This plugin is compatible and has included [ACF qTranslate](https://uk.wordpress.org/plugins/acf-qtranslate/ "ACF qTranslate").
+Just enjoy!
+
+**qTranslate-X**
+
+> If you are using qTranslate-X, you must install [ACF qTranslate](https://uk.wordpress.org/plugins/acf-qtranslate/ "ACF qTranslate").
 
 **WPML/Polylang**
 

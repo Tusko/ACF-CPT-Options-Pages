@@ -4,8 +4,8 @@ Contributors: tusko-trush
 Donate link: https://send.monobank.com.ua/QMnpw2tn
 Tags: Advanced Custom Fields, ACF Options, Custom Post Type, Archive
 Requires at least: 3.0
-Tested up to: 4.9.6
-Stable tag: 2.0.3
+Tested up to: 5.2.1
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,9 +107,14 @@ You must buy ACF PRO or ACF Options Page Addon.
 
 = Translation =
 
-**qTanslate-X**
+**qTranslate-XT**
 
-If you are using Qtranslate-X, you must install [ACF Qtranslate](https://uk.wordpress.org/plugins/acf-qtranslate/ "ACF Qtranslate").
+This plugin is compatible and has included [ACF qTranslate](https://uk.wordpress.org/plugins/acf-qtranslate/ "ACF qTranslate").
+Just enjoy!
+
+**qTranslate-X**
+
+If you are using Qtranslate-X, you must install [ACF qTranslate](https://uk.wordpress.org/plugins/acf-qtranslate/ "ACF qTranslate").
 
 **WPML/Polylang**
 
@@ -134,6 +139,13 @@ If you have any questions on this please post an issue/question at [Github Issue
 1. assets/screenshot-1.png
 
 == Changelog ==
+
+= 2.0.4 =
+* Tested up 5.2.1
+* Assets updated
+
+= 2.0.3 =
+* Fixed underscores in options pages title
 
 = 2.0.2 =
 * Fixed WPML slugs

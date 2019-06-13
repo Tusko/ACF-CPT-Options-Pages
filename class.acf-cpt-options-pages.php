@@ -17,36 +17,23 @@ class ACFCPT_OptionsPages {
 		$this->setup_cpt_options_pages();
 	}
 
-	public function admin_error_notice() {
-		echo '<div class="update-nag"><p>' . __( 'Admin Error Notice', CPT_ACF_DOMAIN ) . '</p></div>';
-	}
+	public function setup_cpt_options_pages() {
+		$registered = $this->get_registered_cpts();
+		if(empty($registered)) {
+			$registered = $this->get_custom_post_types();
+		}
 
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( CPT_ACF_DOMAIN, false, CPT_ACF_DOMAIN . '/languages' );
-	}
+		unset($registered["0"]);
 
-	public function plugin_action_links($links) {
-		$links[] = '<a href="'.admin_url('edit.php?post_type=acf-field-group&page=' . CPT_ACF_DOMAIN . '-settings').'" target="_blank">' . __( 'Settings', CPT_ACF_DOMAIN ) . '</a>';
-		$links[] = '<a href="https://github.com/Tusko/ACF-CPT-Options-Pages#usage" target="_blank">' . __( 'Documentation', CPT_ACF_DOMAIN ) . '</a>';
-		return $links;
-	}
-
-	public function options_page_render(){
-		$hook = add_submenu_page( 'edit.php?post_type=acf-field-group', __('CPT Options Pages', CPT_ACF_DOMAIN), __('CPT Options Pages', CPT_ACF_DOMAIN), 'manage_options', CPT_ACF_DOMAIN . '-settings', array($this, 'options_page_tpl') );
-		add_action( "load-$hook", function() {
-			wp_enqueue_script( 'acf_cpt_logic', CPT_ACF_PLUGIN_DIR . 'assets/acf-cpt-logic.js' );
-		} );
-	}
-
-	public function options_page_tpl() {
-	    include 'tpl-settings-page.php';
-    }
-
-    public function get_custom_post_types(){
-        return get_post_types( array(
-	        '_builtin'    => false,
-	        'has_archive' => true
-        ) );
+		foreach($registered as $k => $v) {
+			if( ! is_array($v) && post_type_exists($v)) {
+				$this->register_post_type_options_page($v, $v);
+			} else {
+				foreach($v as $sub) {
+					$this->register_post_type_options_page($sub, $k);
+				}
+			}
+		}
     }
 
     public function get_registered_cpts(){
@@ -56,7 +43,14 @@ class ACFCPT_OptionsPages {
         return $cpts_enabled;
     }
 
-    public function register_post_type_options_page($name, $cpt) {
+	public function get_custom_post_types() {
+		return get_post_types(array(
+				'_builtin'    => false,
+				'has_archive' => true
+		));
+	}
+
+	public function register_post_type_options_page($name, $cpt) {
 	    $cpt_obj  = get_post_type_object( $cpt );
 	    $slug     = ($name !== $cpt ? '_' . strtolower(preg_replace('/[^a-zA-Z0-9_]/', '_', $name)) : '');
 	    $cpt_id = 'cpt_' . $cpt . $slug;
@@ -89,23 +83,30 @@ class ACFCPT_OptionsPages {
         acf_add_options_page( $cpt_acf_page );
     }
 
-    public function setup_cpt_options_pages(){
-		$registered = $this->get_registered_cpts();
-		if(empty($registered)) {
-			$registered = $this->get_custom_post_types();
-		}
+	public function admin_error_notice() {
+		echo '<div class="update-nag"><p>' . __('Admin Error Notice', CPT_ACF_DOMAIN) . '</p></div>';
+	}
 
-		unset($registered["0"]);
+	public function load_plugin_textdomain() {
+		load_plugin_textdomain(CPT_ACF_DOMAIN, false, CPT_ACF_DOMAIN . '/languages');
+	}
 
-        foreach ( $registered as $k => $v ) {
-			if(!is_array($v) && post_type_exists( $v )) {
-				$this->register_post_type_options_page($v, $v);
-			} else {
-				foreach ( $v as $sub ) {
-		            $this->register_post_type_options_page($sub, $k);
-				}
-			}
-        }
+	public function plugin_action_links($links) {
+		$links[] = '<a href="' . admin_url('edit.php?post_type=acf-field-group&page=' . CPT_ACF_DOMAIN . '-settings') . '" target="_blank">' . __('Settings', CPT_ACF_DOMAIN) . '</a>';
+		$links[] = '<a href="https://github.com/Tusko/ACF-CPT-Options-Pages#usage" target="_blank">' . __('Documentation', CPT_ACF_DOMAIN) . '</a>';
+		$links[] = '<a href="https://arsmoon.com/" target="_blank">Supported by Arsmoon</a>';
+
+		return $links;
+	}
+
+	public function options_page_render() {
+		$hook = add_submenu_page('edit.php?post_type=acf-field-group', __('CPT Options Pages', CPT_ACF_DOMAIN), __('CPT Options Pages', CPT_ACF_DOMAIN), 'manage_options', CPT_ACF_DOMAIN . '-settings', array($this, 'options_page_tpl'));
+		add_action("load-$hook", function() {
+			wp_enqueue_script('acf_cpt_logic', CPT_ACF_PLUGIN_DIR . 'assets/acf-cpt-logic.js');
+		});
+	}
+
+	public function options_page_tpl() {
+		include 'tpl-settings-page.php';
     }
-
 }
