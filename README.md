@@ -9,11 +9,11 @@ By default, options pages are activated for all custom post types.
 
 ## Installation
 
-+ Upload 'acf-cpt-options-pages' to the `/wp-content/plugins/` directory.
-+ Activate the plugin through the`Plugins` menu in WordPress.
-+ Go to `Custom fields` submenu `CPT Options page` and activate CPTs what you need or create subpages for that.
-+ Create your Custom Field Group, set location rule `Options Page` and choose your CPT options page or subpage.
-+ Read the documentation to display your data.
+- Upload 'acf-cpt-options-pages' to the `/wp-content/plugins/` directory.
+- Activate the plugin through the`Plugins` menu in WordPress.
+- Go to `Custom fields` submenu `CPT Options page` and activate CPTs what you need or create subpages for that.
+- Create your Custom Field Group, set location rule `Options Page` and choose your CPT options page or subpage.
+- Read the documentation to display your data.
 
 ![Preview](http://arsmoon.stream/cpt-acf-options.png)
 
@@ -27,11 +27,12 @@ The `$post_id` parameter needed is a string containing the `cpt_` and CPT name i
 
 ## Examples
 
->In examples `projects` is a Custom Post Type name.
+> In examples `projects` is a Custom Post Type name.
 
 So, let's go!
 
 #### Display a field
+
 ```php
 <p><?php the_field('field_name', 'cpt_projects'); ?></p>
 ```
@@ -43,13 +44,16 @@ and the subpage field
 ```
 
 #### Retrieve a field
+
 ```php
 <?php
     $field = get_field('field_name', 'cpt_projects');
     // do something with $field
 ?>
 ```
+
 #### Display a sub field
+
 ```php
 <?php if( have_rows('repeater_name', 'cpt_projects') ): ?>
     <ul>
@@ -59,6 +63,7 @@ and the subpage field
     </ul>
 <?php endif; ?>
 ```
+
 #### Display with shortcode
 
 ```
@@ -94,7 +99,6 @@ Copyright (c) 2020, [Tusko Trush](https://frontend.im/?github "Front-End Develop
 
 You must buy ACF PRO or ACF Options Page Addon.
 
-
 ## Translation
 
 **qTranslate-XT**
@@ -109,14 +113,18 @@ Just enjoy!
 **WPML/Polylang**
 
 > If you are using WPML or Polylang, you must add constant `ICL_LANGUAGE_CODE` to `post_id`,
-for example: `get_field('archive_title', 'cpt_projects_' . ICL_LANGUAGE_CODE)`.
+> for example: `get_field('archive_title', 'cpt_projects_' . ICL_LANGUAGE_CODE)`.
 
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
- [<img src="https://avatars.githubusercontent.com/u/2039259" width="100px;"/><br /><sub>Tusko Trush</sub>](https://github.com/tusko?github)<br /> Chief :D | [<img src="https://avatars.githubusercontent.com/u/1512067" width="100px;"/><br /><sub>Máté Farkas</sub>](https://github.com/wolfika)<br /> i18n Support | [<img src="https://avatars.githubusercontent.com/u/5536354" width="100px;"/><br /><sub>Sauli Rajala</sub>](https://github.com/saulirajala)<br /> Customizations
---- | --- | ---
+
+| [<img src="https://avatars.githubusercontent.com/u/2039259" width="100px;"/><br /><sub>Tusko Trush</sub>](https://github.com/tusko?github)<br /> Chief :D | [<img src="https://avatars.githubusercontent.com/u/1512067" width="100px;"/><br /><sub>Máté Farkas</sub>](https://github.com/wolfika)<br /> i18n Support | [<img src="https://avatars.githubusercontent.com/u/5536354" width="100px;"/><br /><sub>Sauli Rajala</sub>](https://github.com/saulirajala)<br /> Customizations |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
----------------
+---
+
 If you have any questions on this please post an issue/question: https://github.com/Tusko/ACF-CPT-Options-Pages/issues
