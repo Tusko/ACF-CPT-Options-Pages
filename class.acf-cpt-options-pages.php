@@ -44,10 +44,14 @@ class ACFCPT_OptionsPages {
     }
 
 	public function get_custom_post_types() {
-		return get_post_types(array(
-				'_builtin'    => false,
-				'has_archive' => true
-		));
+		$cpt_options = array(
+			'_builtin'    => false,
+			'has_archive' => true
+		);
+
+		$cpt_options = apply_filters('cpt_options_post_types_params', $cpt_options);
+
+		return get_post_types($cpt_options);
 	}
 
 	public function register_post_type_options_page($name, $cpt) {

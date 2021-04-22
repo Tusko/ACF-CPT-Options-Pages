@@ -91,7 +91,7 @@ It works only for first level options pages, not for subpages.
 
 ## License
 
-Copyright (c) 2020, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
+Copyright (c) 2021, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
 
 > See LICENSE for more info.
 
