@@ -2,6 +2,8 @@
 
 Small addon for ACF Options. Adds ACF location for each custom post type.
 
+You can install it from [Wordpress Plugins Repository](https://wordpress.org/plugins/acf-cpt-options-pages)
+
 **New feature** in the major version 2!
 
 Now you can activate/deactivate CPTs and create custom options pages for each CPT.
