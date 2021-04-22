@@ -48,9 +48,7 @@ class ACFCPT_OptionsPages {
 			'_builtin'    => false,
 			'has_archive' => true
 		);
-
 		$cpt_options = apply_filters('cpt_options_post_types_params', $cpt_options);
-
 		return get_post_types($cpt_options);
 	}
 
