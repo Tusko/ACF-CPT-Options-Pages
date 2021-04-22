@@ -146,6 +146,7 @@ If you have any questions on this please post an issue/question at [Github Issue
 
 = 2.0.6 =
 * Tested up 5.7.1
+* Added apply_filters cpt_options_post_types_params
 
 = 2.0.5 =
 * Tested up 5.3.2
