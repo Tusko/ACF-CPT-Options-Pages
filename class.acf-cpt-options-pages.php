@@ -67,7 +67,7 @@ class ACFCPT_OptionsPages {
 	        'parent_slug' => 'edit.php?post_type=' . $cpt,
 	        'capability'  => 'edit_posts',
 	        'post_id'     => $cpt_id,
-	        'position'    => false,
+	        'position'    => null,
 	        'icon_url'    => false,
 	        'redirect'    => false
         );
