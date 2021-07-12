@@ -144,6 +144,10 @@ If you have any questions on this please post an issue/question at [Github Issue
 
 == Changelog ==
 
+= 2.0.7 =
+* Tested up 5.7.2
+* @Ekeler PR: Update class.acf-cpt-options-pages.php
+
 = 2.0.6 =
 * Tested up 5.7.1
 * Added apply_filters cpt_options_post_types_params
