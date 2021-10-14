@@ -75,7 +75,7 @@ class ACFCPT_OptionsPages {
         $cpt_acf_custom = array(
 	        'page_title'  => $human_page_name,
 	        'menu_title'  => $human_page_name,
-	        'menu_slug'   => $slug .'-'. $cpt . '-options',
+	        'menu_slug'   => $slug .'-'. $cpt . '-acfcpt-options',
 	        'capability'  => 'edit_posts',
         );
 
@@ -111,5 +111,5 @@ class ACFCPT_OptionsPages {
 
 	public function options_page_tpl() {
 		include 'tpl-settings-page.php';
-    }
+  }
 }

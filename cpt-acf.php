@@ -5,7 +5,7 @@
  * Description: Enables ACF options pages for a post type archive.
  * Author: Tusko Trush
  * Author URI: https://frontend.im/
- * Version: 2.0.7
+ * Version: 2.0.8
  * License: GPL v3
  * Text Domain: acf-cpt-options-pages
  * Domain Path: /languages
@@ -43,4 +43,17 @@ if(!class_exists('ACFCPT_OptionsPages')) {
 	}
 
 	add_action ('init', 'acf_cpt_admin_init', 99, 3);
+
+	register_activation_hook( __FILE__, 'acf_cpt_check_qtx_i18n' );
+
+	function acf_cpt_check_qtx_i18n() {
+		if(defined('QTX_VERSION') && is_admin()) {
+			global $q_config;
+			$i18n = './plugins/' . CPT_ACF_DOMAIN . '/i18n/config.json';
+			if(isset($q_config['config_files']) && ! in_array($i18n, $q_config['config_files'])) {
+				$q_config['config_files'][] = $i18n;
+			}
+			qtranxf_update_config_options($q_config['config_files'], true);
+		}
+	}
 }

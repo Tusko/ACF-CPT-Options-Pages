@@ -1,0 +1,18 @@
+{
+	"vendor": {
+		"acf-cpt-options-page": "1.0"
+	},
+	"admin-config": {
+		"acf-cpt-options-page": {
+			"pages": {
+				"edit.php": "acfcpt-options"
+			},
+			"anchors": {
+				"#post": {
+					"where": "after"
+				}
+			},
+			"forms": {}
+		}
+	}
+}

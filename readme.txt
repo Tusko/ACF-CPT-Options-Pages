@@ -4,8 +4,8 @@ Contributors: tusko-trush
 Donate link: https://donatua.com/@tusko
 Tags: Advanced Custom Fields, ACF Options, Custom Post Type, Archive
 Requires at least: 3.0
-Tested up to: 5.7.1
-Stable tag: 2.0.6
+Tested up to: 5.8.1
+Stable tag: 2.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,11 @@ If you have any questions on this please post an issue/question at [Github Issue
 1. assets/screenshot-1.png
 
 == Changelog ==
+
+= 2.0.8 =
+* Tested up with WP 5.8.1 and ACF Pro 5.10.2
+* Fix lang switcher and Wysiwyg Editor capability on ACF CPT Options pages
+* Modified page slug  '-options' -> 'acfcpt-options' to make qTranslate config regex
 
 = 2.0.7 =
 * Tested up 5.7.2
