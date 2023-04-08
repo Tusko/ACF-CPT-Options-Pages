@@ -5,13 +5,13 @@
  * Description: Enables ACF options pages for a post type archive.
  * Author: Tusko Trush
  * Author URI: https://frontend.im/
- * Version: 2.0.8
+ * Version: 2.0.9
  * License: GPL v3
  * Text Domain: acf-cpt-options-pages
  * Domain Path: /languages
  *
- * CPT ACF Options Pages
- * Copyright (C) 2021, Tusko Trush - tusko@trush.email
+ * ACF CPT Options Pages
+ * Copyright (C) 2023, Tusko Trush - tusko@trush.email
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,24 +27,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+defined('ABSPATH') or die('No script kiddies please!');
 
-if(!defined('CPT_ACF_PLUGIN')) {
-	define( 'CPT_ACF_PLUGIN_DIR', plugin_dir_url( __FILE__ ));
-	define( 'CPT_ACF_PLUGIN', plugin_basename(__FILE__));
-	define( 'CPT_ACF_DOMAIN', dirname( plugin_basename( __FILE__ ) ));
+if( ! defined('CPT_ACF_PLUGIN')) {
+	define('CPT_ACF_PLUGIN_DIR', plugin_dir_url(__FILE__));
+	define('CPT_ACF_PLUGIN', plugin_basename(__FILE__));
+	define('CPT_ACF_DOMAIN', dirname(plugin_basename(__FILE__)));
 }
 
-if(!class_exists('ACFCPT_OptionsPages')) {
+if( ! class_exists('ACFCPT_OptionsPages')) {
 	include 'class.acf-cpt-options-pages.php';
 
-	function acf_cpt_admin_init(){
+	function acf_cpt_admin_init() {
 		$ACFCPT_OptionsPages = new ACFCPT_OptionsPages;
 	}
 
-	add_action ('init', 'acf_cpt_admin_init', 99, 3);
+	add_action('init', 'acf_cpt_admin_init', 99, 3);
 
-	register_activation_hook( __FILE__, 'acf_cpt_check_qtx_i18n' );
+	register_activation_hook(__FILE__, 'acf_cpt_check_qtx_i18n');
 
 	function acf_cpt_check_qtx_i18n() {
 		if(defined('QTX_VERSION') && is_admin()) {

@@ -4,8 +4,8 @@ Contributors: tusko-trush
 Donate link: https://donatua.com/@tusko
 Tags: Advanced Custom Fields, ACF Options, Custom Post Type, Archive
 Requires at least: 3.0
-Tested up to: 5.8.1
-Stable tag: 2.0.8
+Tested up to: 6.2
+Stable tag: 2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,7 +103,7 @@ It works only for first level options pages, not for subpages.
 
 = License =
 
-Copyright (c) 2021, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
+Copyright (c) 2023, [Tusko Trush](https://frontend.im/?github "Front-End Developer")
 
 = Requirements =
 
@@ -143,6 +143,9 @@ If you have any questions on this please post an issue/question at [Github Issue
 1. assets/screenshot-1.png
 
 == Changelog ==
+
+= 2.0.9 =
+* Tested up with WP 6.2 and ACF Pro 6.1.3
 
 = 2.0.8 =
 * Tested up with WP 5.8.1 and ACF Pro 5.10.2

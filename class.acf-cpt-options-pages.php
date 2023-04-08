@@ -1,19 +1,20 @@
 <?php
+
 class ACFCPT_OptionsPages {
 
 	function __construct() {
 		//Check if installed ACF Options Page
-		if ( function_exists( 'acf_add_options_page' ) ) {
+		if(function_exists('acf_add_options_page')) {
 			$this->init();
 		} else {
-			add_action( 'admin_notices', array( $this, 'admin_error_notice' ) );
+			add_action('admin_notices', array($this, 'admin_error_notice'));
 		}
 	}
 
-	public function init(){
-		add_filter( 'plugin_action_links_' . CPT_ACF_PLUGIN, array($this, 'plugin_action_links') );
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ), 100, 3 );
-		add_action( 'admin_menu', array($this, 'options_page_render') );
+	public function init() {
+		add_filter('plugin_action_links_' . CPT_ACF_PLUGIN, array($this, 'plugin_action_links'));
+		add_action('init', array($this, 'load_plugin_textdomain'), 100, 3);
+		add_action('admin_menu', array($this, 'options_page_render'));
 		$this->setup_cpt_options_pages();
 	}
 
@@ -25,23 +26,25 @@ class ACFCPT_OptionsPages {
 
 		unset($registered["0"]);
 
-		foreach($registered as $k => $v) {
-			if( ! is_array($v) && post_type_exists($v)) {
-				$this->register_post_type_options_page($v, $v);
-			} else {
-				foreach($v as $sub) {
-					$this->register_post_type_options_page($sub, $k);
+		if($registered) {
+			foreach($registered as $k => $v) {
+				if( ! is_array($v) && post_type_exists($v)) {
+					$this->register_post_type_options_page($v, $v);
+				} else {
+					foreach($v as $sub) {
+						$this->register_post_type_options_page($sub, $k);
+					}
 				}
 			}
 		}
-    }
+	}
 
-    public function get_registered_cpts(){
-        $get_cpts_enabled = get_option('acf-cpt-archives');
-        $cpts_enabled = unserialize($get_cpts_enabled);
+	public function get_registered_cpts() {
+		$get_cpts_enabled = get_option('acf-cpt-archives');
+		$cpts_enabled     = unserialize($get_cpts_enabled);
 
-        return $cpts_enabled;
-    }
+		return $cpts_enabled;
+	}
 
 	public function get_custom_post_types() {
 		$cpt_options = array(
@@ -49,41 +52,42 @@ class ACFCPT_OptionsPages {
 			'has_archive' => true
 		);
 		$cpt_options = apply_filters('cpt_options_post_types_params', $cpt_options);
+
 		return get_post_types($cpt_options);
 	}
 
 	public function register_post_type_options_page($name, $cpt) {
-	    $cpt_obj  = get_post_type_object( $cpt );
-	    $slug     = ($name !== $cpt ? '_' . strtolower(preg_replace('/[^a-zA-Z0-9_]/', '_', $name)) : '');
-	    $cpt_id = 'cpt_' . $cpt . $slug;
+		$cpt_obj = get_post_type_object($cpt);
+		$slug    = ($name !== $cpt ? '_' . strtolower(preg_replace('/[^a-zA-Z0-9_]/', '_', $name)) : '');
+		$cpt_id  = 'cpt_' . $cpt . $slug;
 
-	    $human_page_name = sprintf( __( '%s Options', CPT_ACF_DOMAIN ), ucfirst( ($name ? str_replace('_', ' ', $name) : $cpt_obj->labels->singular_name) ) );
+		$human_page_name = sprintf(__('%s Options', CPT_ACF_DOMAIN), ucfirst(($name ? str_replace('_', ' ', $name) : $cpt_obj->labels->singular_name)));
 
-	    if( defined('ICL_LANGUAGE_CODE') ) {
-		    $cpt_id = $cpt_id . '_' . ICL_LANGUAGE_CODE;
-	    }
+		if(defined('ICL_LANGUAGE_CODE')) {
+			$cpt_id = $cpt_id . '_' . ICL_LANGUAGE_CODE;
+		}
 
-        $cpt_acf_page = array(
-	        'parent_slug' => 'edit.php?post_type=' . $cpt,
-	        'capability'  => 'edit_posts',
-	        'post_id'     => $cpt_id,
-	        'position'    => null,
-	        'icon_url'    => false,
-	        'redirect'    => false
-        );
+		$cpt_acf_page = array(
+			'parent_slug' => 'edit.php?post_type=' . $cpt,
+			'capability'  => 'edit_posts',
+			'post_id'     => $cpt_id,
+			'position'    => null,
+			'icon_url'    => false,
+			'redirect'    => false
+		);
 
-        $cpt_acf_custom = array(
-	        'page_title'  => $human_page_name,
-	        'menu_title'  => $human_page_name,
-	        'menu_slug'   => $slug .'-'. $cpt . '-acfcpt-options',
-	        'capability'  => 'edit_posts',
-        );
+		$cpt_acf_custom = array(
+			'page_title' => $human_page_name,
+			'menu_title' => $human_page_name,
+			'menu_slug'  => $slug . '-' . $cpt . '-acfcpt-options',
+			'capability' => 'edit_posts',
+		);
 
-        $cpt_acf_custom = apply_filters( "{$cpt_id}_acf_page_args", $cpt_acf_custom );
-        $cpt_acf_page = array_merge($cpt_acf_page, $cpt_acf_custom);
+		$cpt_acf_custom = apply_filters("{$cpt_id}_acf_page_args", $cpt_acf_custom);
+		$cpt_acf_page   = array_merge($cpt_acf_page, $cpt_acf_custom);
 
-        acf_add_options_page( $cpt_acf_page );
-    }
+		acf_add_options_page($cpt_acf_page);
+	}
 
 	public function admin_error_notice() {
 		echo '<div class="update-nag"><p>' . __('Admin Error Notice', CPT_ACF_DOMAIN) . '</p></div>';
@@ -111,5 +115,5 @@ class ACFCPT_OptionsPages {
 
 	public function options_page_tpl() {
 		include 'tpl-settings-page.php';
-  }
+	}
 }
