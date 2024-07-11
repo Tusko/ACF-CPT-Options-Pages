@@ -101,7 +101,7 @@ class ACFCPT_OptionsPages {
 		$links[] = '<a href="' . admin_url('edit.php?post_type=acf-field-group&page=' . CPT_ACF_DOMAIN . '-settings') . '" target="_blank">' . __('Settings', CPT_ACF_DOMAIN) . '</a>';
 		$links[] = '<a href="https://github.com/Tusko/ACF-CPT-Options-Pages#usage" target="_blank">' . __('Documentation', CPT_ACF_DOMAIN) . '</a>';
 		$links[] = '<a href="https://arsmoon.com/" target="_blank">Supported by Arsmoon</a>';
-		$links[] = '<a href="https://donatua.com/@tusko" target="_blank">Donate</a>';
+		$links[] = '<a href="https://send.monobank.ua/jar/ABrTtpcSbR" target="_blank">Support plugin</a>';
 
 		return $links;
 	}
